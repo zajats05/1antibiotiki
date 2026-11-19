@@ -86,7 +86,7 @@ const WARMUP = [
   }
 ];
 
-/* ================= Локации квеста (2 балла / 1 балл) ================= */
+/* ================= Локации квеста (3 задания: 2 балла с первой попытки / 1 балл после ошибки) ================= */
 
 const LOCATIONS = [
   {
@@ -119,6 +119,17 @@ const LOCATIONS = [
         ],
         correct: 2,
         explain: '«Двухфазное» течение — сначала улучшение, затем новое ухудшение с гнойным отделяемым — классический маркер того, что к вирусной инфекции <strong>присоединилась бактериальная</strong>. Именно в этот момент нужно повторно обратиться к врачу, а не менять препараты наугад.'
+      },
+      {
+        text: 'Лекарь отмеряет крестьянину порошок из лесной аптечки: назначено 0,75 г препарата. Какая масса лекарственного вещества соответствует 0,75 г?',
+        options: [
+          '75 мг',
+          '750 мг',
+          '7500 мг',
+          '7,5 мг'
+        ],
+        correct: 1,
+        explain: '1 г = 1000 мг, поэтому 0,75 г × 1000 = <strong>750 мг</strong>. Ошибка в пересчёте граммов в миллиграммы — одна из самых опасных: доза меняется в 10 раз.'
       }
     ],
     relic: { name: 'Лист мандрагоры', icon: 'leaf', desc: 'Крестьянин поправляется: вы верно отличили бактериальную инфекцию от вирусной.' }
@@ -153,6 +164,17 @@ const LOCATIONS = [
         ],
         correct: 1,
         explain: '<strong>Бета-лактамы</strong> блокируют синтез пептидогликана — каркаса клеточной стенки, и бактерия разрушается. Тетрациклины и макролиды подавляют синтез белка на рибосомах, аминогликозиды действуют на белок и мембрану, фторхинолоны — на бактериальную ДНК.'
+      },
+      {
+        text: 'В древнем манускрипте записан секрет: чем развести некоторые антибиотики для внутримышечного введения, чтобы уменьшить болезненность укола, если это предусмотрено инструкцией?',
+        options: [
+          '5% раствор глюкозы',
+          '0,9% раствор натрия хлорида',
+          '1% раствор лидокаина',
+          'Вода для инъекций'
+        ],
+        correct: 2,
+        explain: 'Для уменьшения болезненности некоторых антибиотиков при в/м введении используют <strong>1% раствор лидокаина</strong> — только если это разрешено инструкцией к препарату и у пациента нет аллергии на лидокаин (её обязательно уточняют). Для внутривенного введения такой раствор не применяют.'
       }
     ],
     relic: { name: 'Манускрипт Флеминга', icon: 'scroll', desc: 'Хранитель библиотеки признал вас знатоком истории антибиотиков.' }
@@ -187,6 +209,17 @@ const LOCATIONS = [
         ],
         correct: 1,
         explain: 'При ОРВИ антибиотик <strong>не работает</strong>: он не действует на вирусы. Правильно — симптоматическое лечение, обильное питьё и наблюдение за признаками ухудшения (новая волна лихорадки, гнойное отделяемое), о которых врач узнает при повторном обращении.'
+      },
+      {
+        text: 'Знахарка приготовила флакон с 500 000 ЕД антибиотика. Какой объём растворителя нужен при соотношении 100 000 ЕД на 0,5 мл?',
+        options: [
+          '5 мл',
+          '1,5 мл',
+          '2 мл',
+          '2,5 мл'
+        ],
+        correct: 3,
+        explain: '500 000 ЕД : 100 000 ЕД = 5 частей; 5 × 0,5 мл = <strong>2,5 мл</strong> растворителя.'
       }
     ],
     relic: { name: 'Зелёное знамя рациональности', icon: 'flask', desc: 'Деревня отказалась от самовольных антибиотиков и «курсов на полдороге».' }
@@ -221,6 +254,17 @@ const LOCATIONS = [
         ],
         correct: 0,
         explain: '<strong>Тетрациклины</strong> связываются кальцием из молочных продуктов и хуже всасываются. Правила приёма у всех препаратов разные — их определяет инструкция и врач. Универсально одно: выдерживать <strong>равные интервалы</strong> между приёмами (например, каждые 8 часов), чтобы концентрация препарата не падала ниже нужной.'
+      },
+      {
+        text: 'В хранилище рецептов найден флакон с 700 000 ЕД антибиотика. Какой объём растворителя нужен при соотношении 100 000 ЕД на 0,5 мл?',
+        options: [
+          '3,5 мл',
+          '2,5 мл',
+          '4 мл',
+          '3 мл'
+        ],
+        correct: 0,
+        explain: '700 000 ЕД : 100 000 ЕД = 7 частей; 7 × 0,5 мл = <strong>3,5 мл</strong> растворителя.'
       }
     ],
     relic: { name: 'Амулет безопасности', icon: 'shield', desc: 'Вы усвоили главные правила безопасного применения антибиотиков.' }
@@ -255,19 +299,31 @@ const LOCATIONS = [
         ],
         correct: 2,
         explain: 'Рациональная профилактика — <strong>короткий курс по конкретным показаниям</strong>: глубокая загрязнённая рана, укус животного, операция. При уже развившейся инфекции нужен полноценный <strong>лечебный</strong> курс, а не профилактическая доза.'
+      },
+      {
+        text: 'Рыцарю назначено 600 000 ЕД антибиотика. Раствор уже готов, его конечная концентрация — 200 000 ЕД/мл. Какой объём раствора нужно ввести?',
+        options: [
+          '2 мл',
+          '4 мл',
+          '3 мл',
+          '1,5 мл'
+        ],
+        correct: 2,
+        explain: 'Объём = доза : концентрация = 600 000 ЕД : 200 000 ЕД/мл = <strong>3 мл</strong>.'
       }
     ],
     relic: { name: 'Королевский указ', icon: 'crown', desc: 'Король вручает вам указ о назначении — вы спасли его лучшего рыцаря.' }
   }
 ];
 
-const MAX_SCORE = WARMUP.length + LOCATIONS.reduce((sum, loc) => sum + loc.questions.length * 2, 0); // 30
+const MAX_SCORE = WARMUP.length + LOCATIONS.reduce((sum, loc) => sum + loc.questions.length * 2, 0); // 10 + 15 × 2 = 40
 
+// Звания по доле набранных баллов от максимума (40)
 const RANKS = [
-  { min: 29, title: 'Верховный магистр лекарских наук' },
-  { min: 25, title: 'Придворный аптекарь короны' },
-  { min: 19, title: 'Ученик целителя' },
-  { min: 0, title: 'Странник-подмастерье' }
+  { min: 0.95, title: 'Верховный магистр лекарских наук' }, // 38–40
+  { min: 0.825, title: 'Придворный аптекарь короны' },      // 33–37
+  { min: 0.625, title: 'Ученик целителя' },                 // 25–32
+  { min: 0, title: 'Странник-подмастерье' }                 // 0–24
 ];
 
 /* ================= Состояние ================= */
@@ -614,7 +670,7 @@ function showFinal() {
   state.stage = 'finished';
   stopTimer();
   refreshMarkers();
-  const rank = RANKS.find(r => totalScore() >= r.min).title;
+  const rank = RANKS.find(r => totalScore() >= Math.ceil(r.min * MAX_SCORE)).title;
   el.finalRank.textContent = rank;
   el.finalStats.textContent = `Баллы: ${totalScore()} из ${MAX_SCORE} · Время: ${formatTime(state.elapsedSeconds)}`;
   el.finalDecree.textContent = `«Сим указом повелеваем: занести в летопись королевства имя — ${state.player.name}, группа ${state.player.group}, — со званием «${rank}», результатом ${totalScore()} из ${MAX_SCORE} баллов и временем пути ${formatTime(state.elapsedSeconds)}».`;
@@ -652,40 +708,22 @@ async function submitResults() {
     seconds: state.elapsedSeconds
   };
 
-  console.log('[submitResults] Отправка на', CONFIG.SCRIPT_URL, payload);
-
   try {
     const resp = await fetch(CONFIG.SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
-
-    if (!resp.ok) {
-      throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
-    }
-
-    const text = await resp.text();
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch (parseErr) {
-      // Скорее всего, пришла HTML-страница (вход в Google или ошибка).
-      console.error('[submitResults] Ответ не JSON. Первые 300 символов:', text.slice(0, 300));
-      throw new Error('Сервер вернул не JSON. Проверьте настройки развёртывания Apps Script: Execute as = Me, Who has access = Anyone.');
-    }
-
+    const data = await resp.json();
     if (data && data.ok) {
       state.submitted = true;
       setSubmitStatus('Результаты записаны в королевскую книгу — таблицу преподавателя.', 'final__submit-status--ok');
       el.btnSubmit.textContent = 'Результаты отправлены';
     } else {
-      throw new Error(data && data.error ? data.error : 'Сервер вернул ok:false без описания');
+      throw new Error(data && data.error ? data.error : 'Ошибка сервера');
     }
   } catch (err) {
-    console.error('[submitResults] Ошибка:', err);
-    const msg = err && err.message ? err.message : String(err);
-    setSubmitStatus('Ошибка отправки: ' + msg, 'final__submit-status--err');
+    setSubmitStatus('Не удалось отправить. Проверьте интернет и нажмите ещё раз.', 'final__submit-status--err');
     el.btnSubmit.disabled = false;
     el.btnSubmit.textContent = 'Отправить результаты в таблицу';
   }
@@ -751,6 +789,11 @@ document.getElementById('btnRestart').addEventListener('click', () => {
 document.getElementById('btnGuide').addEventListener('click', () => show(el.guide));
 document.getElementById('btnCloseGuide').addEventListener('click', () => hide(el.guide));
 el.guide.addEventListener('click', (e) => { if (e.target === el.guide) hide(el.guide); });
+
+/* ================= Старт ================= */
+
+buildMarkers();
+renderRelics();
 
 /* ================= Старт ================= */
 
